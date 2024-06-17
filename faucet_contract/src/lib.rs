@@ -59,7 +59,7 @@ impl Default for Contract {
             blacklist: LookupSet::new(StorageKey::Blacklist),
             factory_list: LookupSet::new(StorageKey::FactoryList),
             mod_list: LookupSet::new(StorageKey::ModList),
-            vault_contract_id: "vault.nonofficial.testnet".parse().unwrap(),
+            vault_contract_id: "861f0be5b5e900ea3d10236a97e2460b82816a9dd85f01bde9443b6f634d06d2".parse().unwrap(),
             min_balance_threshold: 5_000_000_000_000_000_000_000_000_000,
             request_allowance: 10_000_000_000_000_000_000_000_000,
             request_gap_required: 3_600_000,
@@ -80,11 +80,12 @@ impl Contract {
             request_amount.0 <= self.request_allowance,
             "Withdraw request too large!"
         );
-        let pattern = Regex::new(r"^([A-Za-z\d]+[\-_])*[A-Za-z\d]+\.testnet$").unwrap();
-        require!(
-            pattern.is_match(&receiver_id.to_string() as &str),
-            "Invalid receiver account id!"
-        );
+
+        // let pattern = Regex::new(r"^([A-Za-z\d]+[\-_])*[A-Za-z\d]+\.testnet$").unwrap();
+        // require!(
+        //     pattern.is_match(&receiver_id.to_string() as &str),
+        //     "Invalid receiver account id!"
+        // );
 
         // remove expired restrictions
         self.remove_expired_restrictions();

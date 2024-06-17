@@ -1,12 +1,14 @@
 Faucet Contract
 ===================
-This is the faucet contract currently deployed on https://near-faucet.io it [factory](../factory_contract/). 
+
+This is the faucet contract currently deployed on <https://near-faucet.io> it [factory](../factory_contract/).
 
 *Be advised that this is non audited contract for educational purposes only*
 
-
 ## Deployment and Usage
+
 Before building and deploying you should change to these contract settings (found in lib.rs) with the following snippet
+
 ```rust
 // sets the maximum amount an user can request to 10 near
 const MAX_WITHDRAW_AMOUNT: Balance = 10 * ONE_NEAR;
@@ -27,9 +29,9 @@ If you want to test/experiment without using the vault contract you should omit 
 81 // }
 ```
 
-#### Brief overview of the contracts functions
+## Brief overview of the contracts functions
 
-```rust 
+```rust
 pub fn request_funds(...) {
 // requests funds to be sent to certain receiver_id
 }
